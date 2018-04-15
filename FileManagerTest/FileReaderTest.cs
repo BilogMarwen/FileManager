@@ -8,13 +8,13 @@ namespace FileManagerTest
 {
     public class FileReaderTest
     {
+        string filePath = @"C:\Users\Marwen\Downloads\textFile.txt";
+
         [Fact]
         public void FileRead_existingFile_FileContent()
         {
             IFileReader fileReader = new FileReader();
-
-            string filePath = @"C:\Users\Marwen\Downloads\textFile.txt";
-
+            
             Assert.NotEmpty(fileReader.ReadFile(filePath));
         }
 
@@ -24,9 +24,15 @@ namespace FileManagerTest
         {
             ICryptedFileReader fileReader = new FileReader();
 
-            string filePath = @"C:\Users\Marwen\Downloads\textFile.txt";
-
             Assert.NotEmpty(fileReader.ReadCryptedFile(filePath, CrypTingAlgorithm.reverse));
+        }
+
+        [Fact]
+        public void BaseRoleXMLFileRead_existingFile_FileContent()
+        {
+            ISecureFilerReader fileReader = new XMLFileReader();
+
+            Assert.NotEmpty(fileReader.RoleBasedFileRead(filePath, ApplicationRoles.admin));
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace FileManagerCL.Implementations
 {
-    public class XMLFileReader : FileReader, IXMLFileReader, ISecureFilerReader 
+    public class XMLFileReader : FileReader, IXMLFileReader 
     {
         /// <summary>
         /// <see cref="IXMLFileReader.ReadFile(string filePath)"/>
@@ -19,7 +19,7 @@ namespace FileManagerCL.Implementations
         /// <summary>
         /// <see cref="ISecureFilerReader.RoleBasedFileRead(string filePath, ApplicationRoles userRole)"/>
         /// </summary>
-        public string RoleBasedFileRead(string filePath, ApplicationRoles userRole)
+        public override string RoleBasedFileRead(string filePath, ApplicationRoles userRole)
         {
             string fileContent = string.Empty;
 
@@ -31,8 +31,28 @@ namespace FileManagerCL.Implementations
             return fileContent;
         }
 
+        // <summary>
+        /// <see cref="ICryptedFileReader.ReadCryptedFile(string filePath, CrypTingAlgorithm cryptingAlgorithm)"/> 
+        /// </summary> 
+        public override string ReadCryptedFile(string filePath, CrypTingAlgorithm cryptingAlgorithm)
+        {
+            string cryptedFileContent = this.readXMLFile(filePath);
+            string decrypedFileContent = String.Empty;
 
-        
+            switch (cryptingAlgorithm)
+            {
+                case CrypTingAlgorithm.reverse:
+                    {
+                        decrypedFileContent = TextFileDecryptor.ReverseTextDecrypt(cryptedFileContent);
+                        break;
+                    }
+
+            }
+
+            return decrypedFileContent;
+        }
+
+
 
     }
 }

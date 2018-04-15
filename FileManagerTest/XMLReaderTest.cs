@@ -10,12 +10,13 @@ namespace FileManagerTest
 {
     public class XMLReaderTest
     {
+
+        string filePath = @"C:\Users\Marwen\Downloads\book.xml";
+
         [Fact]
         public void XMLFileRead_existingFile_FileContent()
         {
             IXMLFileReader fileReader = new XMLFileReader();
-
-            string filePath = @"C:\Users\Marwen\Downloads\book.xml";
 
             Assert.NotEmpty(fileReader.readXMLFile(filePath));
         }
@@ -25,8 +26,6 @@ namespace FileManagerTest
         {
             ISecureFilerReader fileReader = new XMLFileReader();
 
-            string filePath = @"C:\Users\Marwen\Downloads\book.xml";
-
             Assert.NotEmpty(fileReader.RoleBasedFileRead(filePath,ApplicationRoles.admin));
         }
 
@@ -35,8 +34,6 @@ namespace FileManagerTest
         public void CryptedXMLFileRead_existingFile_FileContent()
         {
             ICryptedFileReader fileReader = new XMLFileReader();
-
-            string filePath = @"C:\Users\Marwen\Downloads\book.xml";
 
             Assert.NotEmpty(fileReader.ReadCryptedFile(filePath, CrypTingAlgorithm.reverse));
         }

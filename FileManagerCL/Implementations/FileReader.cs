@@ -7,7 +7,7 @@ using System.Text;
 
 namespace FileManagerCL.Implementations
 {
-    public class FileReader : IFileReader, ICryptedFileReader
+    public class FileReader : IFileReader, ICryptedFileReader, ISecureFilerReader
     {
         /// <summary>
         /// <see cref="IFileReader.ReadFile(string filePath)"/> 
@@ -25,7 +25,7 @@ namespace FileManagerCL.Implementations
         /// <summary>
         /// <see cref="ICryptedFileReader.ReadCryptedFile(string filePath, CrypTingAlgorithm cryptingAlgorithm)"/> 
         /// </summary> 
-        public string ReadCryptedFile(string filePath, CrypTingAlgorithm cryptingAlgorithm)
+        public virtual string ReadCryptedFile(string filePath, CrypTingAlgorithm cryptingAlgorithm)
         {
             string cryptedFileContent = this.ReadFile(filePath);
             string decrypedFileContent = String.Empty;
@@ -44,5 +44,20 @@ namespace FileManagerCL.Implementations
 
         }
 
+
+        /// <summary>
+        /// <see cref="ISecureFilerReader.RoleBasedFileRead(string filePath, ApplicationRoles userRole)"/>
+        /// </summary>
+        public virtual string RoleBasedFileRead(string filePath, ApplicationRoles userRole)
+        {
+            string fileContent = string.Empty;
+
+            if (AuthorisationHelper.CanReadFile(filePath, userRole))
+            {
+                fileContent = this.ReadFile(filePath);
+            }
+
+            return fileContent;
+        }
     }
 }
