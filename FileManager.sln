@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2015
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileManagerCL", "FileManagerCL\FileManagerCL.csproj", "{28CEF4F2-D26E-43A1-8399-8D17689674C0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileManagerTest", "FileManagerTest\FileManagerTest.csproj", "{1DD59880-9111-4B90-B7D8-323D99C149E6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{28CEF4F2-D26E-43A1-8399-8D17689674C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28CEF4F2-D26E-43A1-8399-8D17689674C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28CEF4F2-D26E-43A1-8399-8D17689674C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28CEF4F2-D26E-43A1-8399-8D17689674C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DD59880-9111-4B90-B7D8-323D99C149E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DD59880-9111-4B90-B7D8-323D99C149E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DD59880-9111-4B90-B7D8-323D99C149E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DD59880-9111-4B90-B7D8-323D99C149E6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7F8E61DB-61C1-412E-A9DD-C7189055F8A8}
+	EndGlobalSection
+EndGlobal
