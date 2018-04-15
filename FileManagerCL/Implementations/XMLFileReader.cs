@@ -6,7 +6,7 @@ using System.Text;
 
 namespace FileManagerCL.Implementations
 {
-    public class XMLFileReader : FileReader, IXMLFileReader, ISecureFilerReader
+    public class XMLFileReader : FileReader, IXMLFileReader, ISecureFilerReader 
     {
         /// <summary>
         /// <see cref="IXMLFileReader.ReadFile(string filePath)"/>
@@ -30,5 +30,9 @@ namespace FileManagerCL.Implementations
 
             return fileContent;
         }
+
+
+        
+
     }
 }

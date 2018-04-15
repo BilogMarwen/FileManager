@@ -29,5 +29,16 @@ namespace FileManagerTest
 
             Assert.NotEmpty(fileReader.RoleBasedFileRead(filePath,ApplicationRoles.admin));
         }
+
+
+        [Fact]
+        public void CryptedXMLFileRead_existingFile_FileContent()
+        {
+            ICryptedFileReader fileReader = new XMLFileReader();
+
+            string filePath = @"C:\Users\Marwen\Downloads\book.xml";
+
+            Assert.NotEmpty(fileReader.ReadCryptedFile(filePath, CrypTingAlgorithm.reverse));
+        }
     }
 }
