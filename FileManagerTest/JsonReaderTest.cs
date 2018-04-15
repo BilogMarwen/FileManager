@@ -1,4 +1,5 @@
-﻿using FileManagerCL.Implementations;
+﻿using FileManagerCL.Helpers;
+using FileManagerCL.Implementations;
 using FileManagerCL.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,24 @@ namespace FileManagerTest
             IJSONFileReader jsonFileReader = new JSONFileReader();
 
             string fileContent = jsonFileReader.ReadJSONFile(filePath);
+            Assert.NotEmpty(fileContent);
+        }
+
+        [Fact]
+        public void ReadCryptedFile_existingFile_FileContent()
+        {
+            ICryptedFileReader jsonFileReader = new JSONFileReader();
+
+            string fileContent = jsonFileReader.ReadCryptedFile(filePath, CrypTingAlgorithm.reverse);
+            Assert.NotEmpty(fileContent);
+        }
+
+        [Fact]
+        public void RoleBasedFileRead_existingFile_FileContent()
+        {
+            ISecureFilerReader jsonFileReader = new JSONFileReader();
+
+            string fileContent = jsonFileReader.RoleBasedFileRead(filePath,ApplicationRoles.admin);
             Assert.NotEmpty(fileContent);
         }
     }

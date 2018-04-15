@@ -52,7 +52,5 @@ namespace FileManagerCL.Implementations
             return decrypedFileContent;
         }
 
-
-
     }
 }
