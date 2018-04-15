@@ -37,5 +37,20 @@ namespace FileManagerCL.Implementations
 
             return decrypedFileContent;
         }
+
+        /// <summary>
+        /// <see cref="ISecureFilerReader.RoleBasedFileRead(string filePath, ApplicationRoles userRole)"/>
+        /// </summary>
+        public override string RoleBasedFileRead(string filePath, ApplicationRoles userRole)
+        {
+            string fileContent = string.Empty;
+
+            if (AuthorisationHelper.CanReadFile(filePath, userRole))
+            {
+                fileContent = this.ReadJSONFile(filePath);
+            }
+
+            return fileContent;
+        }
     }
 }
