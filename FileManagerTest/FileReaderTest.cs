@@ -14,7 +14,7 @@ namespace FileManagerTest
 
             string filePath = @"C:\Users\Marwen\Downloads\textFile.txt";
 
-            Assert.NotEmpty(filePath);
+            Assert.NotEmpty(fileReader.ReadFile(filePath));
         }
     }
 }
